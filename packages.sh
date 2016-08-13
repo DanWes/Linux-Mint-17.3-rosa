@@ -5,8 +5,15 @@ sudo apt-get install build-essential
 sudo apt-get install git
 
 # i3 window manager
+# first add an additionally repository for the newest stable version of i3
 # metapackage: i3, i3lock, i3status, suckless-tools (for dmenu), dunst
-sudo apt-get install i3
+sudo -i
+echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/sources.list
+apt-get update
+apt-get --allow-unauthenticated install sur5r-keyring
+apt-get update
+apt-get install i3
+exit        # to leave the root shell
 # i3blocks as an alternative to the i3status in the bar
 # https://github.com/vivien/i3blocks
 git clone git://github.com/vivien/i3blocks
